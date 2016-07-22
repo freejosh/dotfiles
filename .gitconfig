@@ -1,0 +1,30 @@
+[color]
+	ui = true
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+
+[alias]
+	st = status -sb
+	staged = diff --staged
+	discard = checkout -- .
+	br = "!git branch -vv | awk '\
+		/\\[origin[^\\]:]+: ahead/ {print \"\\033[1;32m\" $0 \"\\033[0;39m\"}\
+		/\\[origin[^\\]:]+: behind/ {print \"\\033[1;34m\" $0 \"\\033[0;39m\"}\
+		/\\[origin[^\\]:]+: gone/ {print \"\\033[1;31m\" $0 \"\\033[0;39m\"}\
+		/\\[origin[^\\]:]+\\]/ {print}\
+	'"
+	next = "!f() { git log --reverse --ancestry-path ${1:-HEAD}..HEAD | grep commit | head -n ${2:-1}; }; f"
+	#gone = "!git branch -vv | grep '\[origin.*: gone\]' | cut -d' ' -f3 | xargs git branch -d"
+
+[push]
+	default = current
+
+[log]
+	date = local
+
+[core]
+	pager = less -x4
