@@ -13,6 +13,10 @@ if ! grep -q "$CMD" .bash_profile ; then
 	echo -e "\n$CMD\n" >> .bash_profile
 fi
 
+# install Sublime CLI tool
+echo "install Sublime CLI tool"
+ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
+
 # set up git config
 echo "gitconfig: including $DIR/.gitconfig"
 git config --global include.path "$DIR/.gitconfig"
