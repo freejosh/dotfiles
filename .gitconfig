@@ -18,7 +18,7 @@
 		/\\[origin[^\\]:]+\\]/ {print}\
 	'"
 	next = "!f() { git log --reverse --ancestry-path ${1:-HEAD}..HEAD | grep commit | head -n ${2:-1}; }; f"
-	gone = "!f() { git remote prune ${1:-origin} && git branch -vv | grep '\[${1:-origin}.*: gone\]' | cut -d' ' -f3 | xargs git branch -D; }; f"
+	gone = "!f() { git remote prune ${1:-origin} && git branch -vv | grep '\\[${1:-origin}.*: gone\\]' | cut -d' ' -f3 | xargs git branch -D; }; f"
 
 [push]
 	default = current
