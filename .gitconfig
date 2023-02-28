@@ -10,7 +10,7 @@
 [alias]
 	st = status -sb
 	staged = diff --staged
-	discard = checkout -- .
+	discard = checkout --
 	br = "!git branch -vv | awk '\
 		/\\[origin[^\\]:]+: ahead/ {print \"\\033[1;32m\" $0 \"\\033[0;39m\"}\
 		/\\[origin[^\\]:]+: behind/ {print \"\\033[1;34m\" $0 \"\\033[0;39m\"}\
