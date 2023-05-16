@@ -22,8 +22,8 @@ if ! grep -q "$CMD" .bash_profile ; then
 fi
 
 # install Sublime CLI tool
-echo "install Sublime CLI tool"
-ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
+echo "Installing Sublime CLI tool"
+ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
 
 # set up git config
 echo "gitconfig: including $DIR/.gitconfig"
