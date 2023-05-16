@@ -7,7 +7,7 @@ DIR=$(cd "$(dirname "${BASH_SOURCE}")"; pwd -P)
 cd ~
 
 # install git completion if it exists
-GC_FILE = "$(brew --prefix git)/etc/bash_completion.d/git-completion.bash"
+GC_FILE="$(brew --prefix git)/etc/bash_completion.d/git-completion.bash"
 CMD="source $GC_FILE"
 if [ -f $GC_FILE ] && [ ! grep -q "$CMD" .bash_profile ]; then
   echo "bash_profile: Adding $CMD"
