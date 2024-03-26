@@ -6,20 +6,24 @@ DIR=$(cd "$(dirname "${BASH_SOURCE}")"; pwd -P)
 # switch to home dir
 cd ~
 
-# install git completion if it exists
-GC_FILE="$(brew --prefix git)/etc/bash_completion.d/git-completion.bash"
-CMD="source $GC_FILE"
-if [ -f "$GC_FILE" ] && ! grep -q "$CMD" .bash_profile; then
-  echo "bash_profile: Adding $CMD"
-  echo -e "\n$CMD\n" >> .bash_profile
-fi
+# set bash as default shell
+echo "Setting bash as default shell"
+chsh -s /bin/bash
 
 # set up bash_profile
 touch .bash_profile
 CMD="source $DIR/.bash_profile"
 if ! grep -q "$CMD" .bash_profile ; then
-	echo "bash_profile: Adding $CMD"
-	echo -e "\n$CMD\n" >> .bash_profile
+  echo "bash_profile: Adding $CMD"
+  echo -e "\n$CMD\n" >> .bash_profile
+fi
+
+# install git completion if it exists
+GC_FILE="$(brew --prefix)/etc/bash_completion"
+CMD="source $GC_FILE"
+if [ -f "$GC_FILE" ] && ! grep -q "$CMD" .bash_profile; then
+  echo "bash_profile: Adding $CMD"
+  echo -e "\n$CMD\n" >> .bash_profile
 fi
 
 # install Sublime CLI tool
